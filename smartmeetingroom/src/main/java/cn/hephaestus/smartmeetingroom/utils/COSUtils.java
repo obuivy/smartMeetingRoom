@@ -138,25 +138,4 @@ public class COSUtils {
         return deleteFileByPath(filePath);
     }
 
-
-    //上传文件
-    public static String addFile(String key, InputStream inputStream){
-
-        COSCredentials cred = new BasicCOSCredentials(secretId,secretKey);
-        ClientConfig clientConfig = new ClientConfig(new Region(region_name));
-        COSClient cosClient = new COSClient(cred, clientConfig);
-        PutObjectRequest objectRequest=new PutObjectRequest(bucketName,key,inputStream,new ObjectMetadata());
-        try {
-           PutObjectResult objectResult=cosClient.putObject(objectRequest);
-        }catch (Exception e){
-            return null;
-        }finally {
-            try {
-                inputStream.close();
-            }catch (Exception e){
-                LogUtils.getExceptionLogger().error(e.toString());
-            }
-        }
-        return "https://smartmeetingroom-1257009269.cos.ap-guangzhou.myqcloud.com/"+key;
-    }
 }
