@@ -209,19 +209,6 @@ public class UserServiceImpl implements UserService{
         return false;
     }
 
-    private  String saveUserHeadPortrait(InputStream inputStream,String username){
-        try {
-
-            String url= COSUtils.addFile("head_portrait/"+username+"_headportrait" + UUID.randomUUID(),inputStream);
-            return url;
-        }finally {
-            try {
-                inputStream.close();
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-        }
-    }
 
     public String produceSalt()
     {

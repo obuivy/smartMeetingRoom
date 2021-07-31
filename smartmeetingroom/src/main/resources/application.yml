@@ -9,9 +9,9 @@ spring:
     password: OBUIVYyhm20010921.
   redis:
     database: 0
-    host: 47.107.108.67
+    host: 121.40.65.8
     port: 6379
-    password:
+    password: fengye..702
     jedis:
       pool:
         max-active: 8
